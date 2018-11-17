@@ -20,5 +20,13 @@ $ch = curl_init();
 $update = json_decode(file_get_contents('php://input'));
 $message = $update->message;
 $chat_id = $message->chat->id;
+$text = $message->text;
+
+if($text){
+	bot('snedMessage',[
+	'chat_id'=>$chat_id,
+	'text'=>'hello'
+	]);
+}
 
 ?>
